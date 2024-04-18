@@ -25,11 +25,17 @@ func _process(delta):
 	if Input.is_action_just_pressed("right_button"):
 		$right.play()
 
+	#if Input.is_action_pressed("pitch_up"):
+		#pitchV = 1.115
+		#
+	#if Input.is_action_pressed("pitch_down"):
+		#pitchV = 0.85
+		#
+	#if not Input.is_action_pressed("pitch_up") and Input.is_action_pressed("pitch_down"):
+		#pitchV = 1
+	
 	if Input.is_action_pressed("pitch_up"):
-		pitchV = 1.115
+		pitchV = remap(Input.get_action_strength("pitch_up"), -1, 1, 0.885, 1.115)
 		
 	if Input.is_action_pressed("pitch_down"):
-		pitchV = 0.85
-		
-	#else:
-		#pitchV = 1
+		pitchV = remap(Input.get_action_strength("pitch_down"), -1, 1, 1.115, 0.885)
