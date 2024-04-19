@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://n8yk8em8pgye"]
+[gd_scene load_steps=7 format=3 uid="uid://n8yk8em8pgye"]
 
 [ext_resource type="Script" path="res://sound.gd" id="1_5ae68"]
 [ext_resource type="AudioStream" uid="uid://dr1towv87fu6x" path="res://ocarina/OOT_Notes_Ocarina_D_med.wav" id="2_6lgo7"]
@@ -6,7 +6,6 @@
 [ext_resource type="AudioStream" uid="uid://h7sasq3kn3h7" path="res://ocarina/OOT_Notes_Ocarina_F_med.wav" id="4_cfoao"]
 [ext_resource type="AudioStream" uid="uid://tgg1fvapk87p" path="res://ocarina/OOT_Notes_Ocarina_B_med.wav" id="5_mmdjb"]
 [ext_resource type="AudioStream" uid="uid://qux50egku33b" path="res://ocarina/OOT_Notes_Ocarina_A_med.wav" id="6_wgrjs"]
-[ext_resource type="PackedScene" uid="uid://dy4xvkmw5un84" path="res://tinmixamoblend.fbx" id="7_emfq5"]
 
 [node name="Node3D" type="Node3D"]
 script = ExtResource("1_5ae68")
@@ -30,6 +29,3 @@ volume_db = -0.5
 [node name="right" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_wgrjs")
 volume_db = -0.5
-
-[node name="Root Scene" parent="." instance=ExtResource("7_emfq5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.9372, 34.906, 54.6897)

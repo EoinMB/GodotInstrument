@@ -39,3 +39,8 @@ func _process(delta):
 		
 	if Input.is_action_pressed("pitch_down"):
 		pitchV = remap(Input.get_action_strength("pitch_down"), -1, 1, 1.115, 0.885)
+
+
+##Drum Loops
+	if Input.is_action_just_pressed("DrumUp"):
+		$DrumUp.play()
