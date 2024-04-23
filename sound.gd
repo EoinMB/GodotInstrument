@@ -2,6 +2,9 @@ extends Node
 
 var pitchV = 1
 
+func _ready():
+	$Skulla.play()
+
 func _process(delta):
 			
 	$A.pitch_scale = pitchV
@@ -12,22 +15,29 @@ func _process(delta):
 		
 	if Input.is_action_just_pressed("A_button"):
 		$A.play()
+		$Elfo.play("A")
 		
 	if Input.is_action_just_pressed("up_button"):
 		$up.play()
+		$Elfo.play("Up")
 		
 	if Input.is_action_just_pressed("down_button"):
 		$down.play()
-	
+		$Elfo.play("Down")
+		
 	if Input.is_action_just_pressed("left_button"):
 		$left.play()
+		$Elfo.play("Left")
 	
 	if Input.is_action_just_pressed("right_button"):
 		$right.play()
+		$Elfo.play("Right")
 
-	#if Input.is_action_pressed("pitch_up"):
-		#pitchV = 1.115
-		#
+	if Input.is_action_pressed("ResetPitch"):
+		pitchV = 1
+		
+	if not Input.is_action_pressed("pitch_up") && not Input.is_action_pressed("pitch_down"):
+		pitchV = 1
 	#if Input.is_action_pressed("pitch_down"):
 		#pitchV = 0.85
 		#

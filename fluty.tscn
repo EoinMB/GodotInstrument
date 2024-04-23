@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://0gosbw33dkn4"]
+[gd_scene load_steps=25 format=3 uid="uid://0gosbw33dkn4"]
 
 [ext_resource type="Script" path="res://sound.gd" id="1_qqg8e"]
 [ext_resource type="AudioStream" uid="uid://dr1towv87fu6x" path="res://ocarina/OOT_Notes_Ocarina_D_med.wav" id="2_yceg1"]
@@ -7,7 +7,104 @@
 [ext_resource type="AudioStream" uid="uid://tgg1fvapk87p" path="res://ocarina/OOT_Notes_Ocarina_B_med.wav" id="5_ue4m7"]
 [ext_resource type="AudioStream" uid="uid://qux50egku33b" path="res://ocarina/OOT_Notes_Ocarina_A_med.wav" id="6_asl6l"]
 [ext_resource type="AudioStream" uid="uid://cf0b6m44juxot" path="res://drumloopup.ogg" id="7_qnkqa"]
-[ext_resource type="Texture2D" uid="uid://cr8s7krgus1me" path="res://forest.png" id="8_tki1e"]
+[ext_resource type="Texture2D" uid="uid://blf75g8jcfkix" path="res://Elf/Skulla/forestbg.png" id="8_lcnw7"]
+[ext_resource type="Texture2D" uid="uid://bl5l3u73lncmt" path="res://Elf/Untitled_Artwork-3.png" id="9_ejb63"]
+[ext_resource type="Texture2D" uid="uid://dnagpgnxtg03n" path="res://Elf/Untitled_Artwork-4.png" id="10_8k0g1"]
+[ext_resource type="Texture2D" uid="uid://564dnkrinjdv" path="res://Elf/Untitled_Artwork-5.png" id="11_7xc4j"]
+[ext_resource type="Texture2D" uid="uid://b471ielog3yu7" path="res://Elf/Untitled_Artwork-6.png" id="12_wnhoq"]
+[ext_resource type="Texture2D" uid="uid://1fc12wg5d473" path="res://Elf/Untitled_Artwork-11.png" id="13_jboof"]
+[ext_resource type="Texture2D" uid="uid://c4bt7a2wyrr5v" path="res://Elf/Untitled_Artwork-12.png" id="14_i7qhv"]
+[ext_resource type="Texture2D" uid="uid://dqbn52a2fajt" path="res://Elf/Untitled_Artwork-9.png" id="15_t63d8"]
+[ext_resource type="Texture2D" uid="uid://c713b70e82fsm" path="res://Elf/Untitled_Artwork-10.png" id="16_ufas4"]
+[ext_resource type="Texture2D" uid="uid://diu0nxg72sly3" path="res://Elf/Untitled_Artwork-7.png" id="17_msbg6"]
+[ext_resource type="Texture2D" uid="uid://cy5q4tyicd41f" path="res://Elf/Untitled_Artwork-8.png" id="18_t5mpm"]
+[ext_resource type="Texture2D" uid="uid://dnytxfd4782mv" path="res://Elf/Untitled_Artwork-1.png" id="19_mkias"]
+[ext_resource type="Texture2D" uid="uid://cvgetcfbgiuka" path="res://Elf/Untitled_Artwork-2.png" id="20_0xj56"]
+[ext_resource type="Texture2D" uid="uid://bnt8umhqw12nv" path="res://Elf/Skulla/Untitled_Artwork-1.png" id="21_338rm"]
+[ext_resource type="Texture2D" uid="uid://c14vq0ow5ymjx" path="res://Elf/Skulla/Untitled_Artwork-2.png" id="22_2wbbs"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hjhyh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_ejb63")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_8k0g1")
+}],
+"loop": true,
+"name": &"A",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_7xc4j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_wnhoq")
+}],
+"loop": true,
+"name": &"Down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_jboof")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_i7qhv")
+}],
+"loop": true,
+"name": &"Left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("15_t63d8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_ufas4")
+}],
+"loop": true,
+"name": &"Right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("17_msbg6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_t5mpm")
+}],
+"loop": true,
+"name": &"Up",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("19_mkias")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_0xj56")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jqgbx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("21_338rm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_2wbbs")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="fluty" type="Node2D"]
 script = ExtResource("1_qqg8e")
@@ -39,5 +136,16 @@ volume_db = -0.5
 [node name="Forest" type="Sprite2D" parent="."]
 texture_filter = 1
 texture_repeat = 1
-position = Vector2(80, 72)
-texture = ExtResource("8_tki1e")
+position = Vector2(960, 540)
+texture = ExtResource("8_lcnw7")
+
+[node name="Elfo" type="AnimatedSprite2D" parent="."]
+position = Vector2(507, 814)
+sprite_frames = SubResource("SpriteFrames_hjhyh")
+animation = &"idle"
+frame = 1
+frame_progress = 1.0
+
+[node name="Skulla" type="AnimatedSprite2D" parent="."]
+position = Vector2(1356, 416)
+sprite_frames = SubResource("SpriteFrames_jqgbx")
