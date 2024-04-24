@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://0gosbw33dkn4"]
+[gd_scene load_steps=33 format=3 uid="uid://0gosbw33dkn4"]
 
 [ext_resource type="Script" path="res://sound.gd" id="1_qqg8e"]
 [ext_resource type="AudioStream" uid="uid://dr1towv87fu6x" path="res://ocarina/OOT_Notes_Ocarina_D_med.wav" id="2_yceg1"]
@@ -7,8 +7,10 @@
 [ext_resource type="AudioStream" uid="uid://tgg1fvapk87p" path="res://ocarina/OOT_Notes_Ocarina_B_med.wav" id="5_ue4m7"]
 [ext_resource type="AudioStream" uid="uid://qux50egku33b" path="res://ocarina/OOT_Notes_Ocarina_A_med.wav" id="6_asl6l"]
 [ext_resource type="AudioStream" uid="uid://cf0b6m44juxot" path="res://drumloopup.ogg" id="7_qnkqa"]
+[ext_resource type="AudioStream" uid="uid://lvgi6k5xp3h2" path="res://drumloop3.mp3" id="8_ipnxw"]
 [ext_resource type="Texture2D" uid="uid://blf75g8jcfkix" path="res://Elf/Skulla/forestbg.png" id="8_lcnw7"]
 [ext_resource type="Texture2D" uid="uid://bl5l3u73lncmt" path="res://Elf/Untitled_Artwork-3.png" id="9_ejb63"]
+[ext_resource type="AudioStream" uid="uid://ccr3a25oeag80" path="res://drumloop2.mp3" id="9_hxm8c"]
 [ext_resource type="Texture2D" uid="uid://dnagpgnxtg03n" path="res://Elf/Untitled_Artwork-4.png" id="10_8k0g1"]
 [ext_resource type="Texture2D" uid="uid://564dnkrinjdv" path="res://Elf/Untitled_Artwork-5.png" id="11_7xc4j"]
 [ext_resource type="Texture2D" uid="uid://b471ielog3yu7" path="res://Elf/Untitled_Artwork-6.png" id="12_wnhoq"]
@@ -22,6 +24,11 @@
 [ext_resource type="Texture2D" uid="uid://cvgetcfbgiuka" path="res://Elf/Untitled_Artwork-2.png" id="20_0xj56"]
 [ext_resource type="Texture2D" uid="uid://bnt8umhqw12nv" path="res://Elf/Skulla/Untitled_Artwork-1.png" id="21_338rm"]
 [ext_resource type="Texture2D" uid="uid://c14vq0ow5ymjx" path="res://Elf/Skulla/Untitled_Artwork-2.png" id="22_2wbbs"]
+[ext_resource type="Texture2D" uid="uid://d1n6rjqtnsf1c" path="res://buttons/Buttons-1.png" id="25_ma5ao"]
+[ext_resource type="Texture2D" uid="uid://ciiswcykqm1u2" path="res://buttons/Buttons-3.png" id="26_7dj1d"]
+[ext_resource type="Texture2D" uid="uid://bp7uqbvf5xgff" path="res://buttons/Buttons-5.png" id="27_npm0p"]
+[ext_resource type="Texture2D" uid="uid://swr20tpsuveh" path="res://buttons/Buttons-7.png" id="28_edsys"]
+[ext_resource type="Texture2D" uid="uid://djkpv7bfs08eq" path="res://buttons/Buttons-9.png" id="29_j0b7u"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_hjhyh"]
 animations = [{
@@ -106,6 +113,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Gradient" id="Gradient_lyomj"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
 [node name="fluty" type="Node2D"]
 script = ExtResource("1_qqg8e")
 
@@ -133,6 +143,14 @@ volume_db = -0.5
 stream = ExtResource("7_qnkqa")
 volume_db = -0.5
 
+[node name="DrumLeft" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_ipnxw")
+volume_db = -0.5
+
+[node name="DrumRight" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_hxm8c")
+volume_db = -0.5
+
 [node name="Forest" type="Sprite2D" parent="."]
 texture_filter = 1
 texture_repeat = 1
@@ -142,10 +160,73 @@ texture = ExtResource("8_lcnw7")
 [node name="Elfo" type="AnimatedSprite2D" parent="."]
 position = Vector2(507, 814)
 sprite_frames = SubResource("SpriteFrames_hjhyh")
-animation = &"idle"
-frame = 1
-frame_progress = 1.0
+animation = &"Right"
 
 [node name="Skulla" type="AnimatedSprite2D" parent="."]
 position = Vector2(1356, 416)
 sprite_frames = SubResource("SpriteFrames_jqgbx")
+
+[node name="Aparticle" type="CPUParticles2D" parent="."]
+position = Vector2(650, 871)
+emitting = false
+amount = 1
+lifetime = 0.5
+one_shot = true
+texture = ExtResource("25_ma5ao")
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector2(0, 0)
+gravity = Vector2(0, -1000)
+color_ramp = SubResource("Gradient_lyomj")
+
+[node name="Upparticle" type="CPUParticles2D" parent="."]
+position = Vector2(634, 685)
+emitting = false
+amount = 1
+lifetime = 0.5
+one_shot = true
+texture = ExtResource("26_7dj1d")
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector2(0, 0)
+gravity = Vector2(0, -1000)
+color_ramp = SubResource("Gradient_lyomj")
+
+[node name="Downparticle" type="CPUParticles2D" parent="."]
+position = Vector2(578, 988)
+emitting = false
+amount = 1
+lifetime = 0.5
+one_shot = true
+texture = ExtResource("27_npm0p")
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector2(0, 0)
+gravity = Vector2(0, -1000)
+color_ramp = SubResource("Gradient_lyomj")
+
+[node name="Leftparticle" type="CPUParticles2D" parent="."]
+position = Vector2(312, 849)
+emitting = false
+amount = 1
+lifetime = 0.5
+one_shot = true
+texture = ExtResource("28_edsys")
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector2(0, 0)
+gravity = Vector2(0, -1000)
+color_ramp = SubResource("Gradient_lyomj")
+
+[node name="Rightparticle" type="CPUParticles2D" parent="."]
+position = Vector2(720, 847)
+emitting = false
+amount = 1
+lifetime = 0.5
+one_shot = true
+texture = ExtResource("29_j0b7u")
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector2(0, 0)
+gravity = Vector2(0, -1000)
+color_ramp = SubResource("Gradient_lyomj")
