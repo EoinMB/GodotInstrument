@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://0gosbw33dkn4"]
+[gd_scene load_steps=47 format=3 uid="uid://0gosbw33dkn4"]
 
 [ext_resource type="Script" path="res://sound.gd" id="1_qqg8e"]
 [ext_resource type="AudioStream" uid="uid://dr1towv87fu6x" path="res://ocarina/OOT_Notes_Ocarina_D_med.wav" id="2_yceg1"]
@@ -39,6 +39,10 @@
 [ext_resource type="Texture2D" uid="uid://db0t3qpj07by2" path="res://buttons/cbuttons/C_buttons-6.png" id="37_1rx2w"]
 [ext_resource type="Texture2D" uid="uid://k7tqupwk7vaq" path="res://buttons/cbuttons/C_buttons-7.png" id="38_ooc8k"]
 [ext_resource type="Texture2D" uid="uid://btsgl1u3kh4tl" path="res://buttons/cbuttons/C_buttons-8.png" id="39_oihi2"]
+[ext_resource type="Texture2D" uid="uid://b057vsxi5vlht" path="res://buttons/cbuttons/drum buttons/drum_buttons-1.png" id="40_g7gio"]
+[ext_resource type="Texture2D" uid="uid://bofdex0m5w4gj" path="res://buttons/cbuttons/drum buttons/drum_buttons-2.png" id="41_6g3mg"]
+[ext_resource type="Texture2D" uid="uid://bxsbu2h0k8pp6" path="res://buttons/cbuttons/drum buttons/drum_buttons-3.png" id="42_de678"]
+[ext_resource type="Texture2D" uid="uid://b2a1j47d5bopo" path="res://buttons/cbuttons/drum buttons/drum_buttons-4.png" id="43_p0nna"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_hjhyh"]
 animations = [{
@@ -248,33 +252,57 @@ one_shot = true
 [node name="buttons" type="Node" parent="."]
 
 [node name="A" type="TouchScreenButton" parent="buttons"]
-position = Vector2(96, 360)
+position = Vector2(149, 360)
 texture_normal = ExtResource("30_d2cg5")
 texture_pressed = ExtResource("31_bibpe")
 action = "A_button"
 
 [node name="up" type="TouchScreenButton" parent="buttons"]
-position = Vector2(367, 44)
+position = Vector2(420, 44)
 texture_normal = ExtResource("32_5plgu")
 texture_pressed = ExtResource("33_enm61")
 action = "up_button"
 
 [node name="down" type="TouchScreenButton" parent="buttons"]
-position = Vector2(390, 275)
+position = Vector2(443, 275)
 texture_normal = ExtResource("33_xf0f0")
 texture_pressed = ExtResource("35_3tg6t")
 action = "down_button"
 
 [node name="left" type="TouchScreenButton" parent="buttons"]
-position = Vector2(242, 170)
+position = Vector2(295, 170)
 texture_normal = ExtResource("36_r0qjm")
 texture_pressed = ExtResource("37_1rx2w")
 action = "left_button"
 
-[node name="left2" type="TouchScreenButton" parent="buttons"]
-position = Vector2(507, 148)
+[node name="right" type="TouchScreenButton" parent="buttons"]
+position = Vector2(560, 148)
 texture_normal = ExtResource("38_ooc8k")
 texture_pressed = ExtResource("39_oihi2")
-action = "left_button"
+action = "right_button"
+
+[node name="drumup" type="TouchScreenButton" parent="buttons"]
+position = Vector2(117, 91)
+texture_normal = ExtResource("40_g7gio")
+texture_pressed = ExtResource("41_6g3mg")
+action = "DrumUp"
+
+[node name="drumleft" type="TouchScreenButton" parent="buttons"]
+position = Vector2(48, 156)
+texture_normal = ExtResource("40_g7gio")
+texture_pressed = ExtResource("41_6g3mg")
+action = "DrumLeft"
+
+[node name="drumright" type="TouchScreenButton" parent="buttons"]
+position = Vector2(186, 156)
+texture_normal = ExtResource("40_g7gio")
+texture_pressed = ExtResource("41_6g3mg")
+action = "DrumRight"
+
+[node name="drumoff" type="TouchScreenButton" parent="buttons"]
+position = Vector2(118, 223)
+texture_normal = ExtResource("42_de678")
+texture_pressed = ExtResource("43_p0nna")
+action = "DrumDown"
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
